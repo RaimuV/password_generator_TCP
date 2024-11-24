@@ -1,7 +1,5 @@
 # TCP Password Generator
 
-**Authors:** Angelo Giordano, Giuseppe Bruno (Matricole: 802019, 798106)
-
 ## Overview
 This repository contains the implementation of a **university exam project**, which consists of two interrelated components: a **client** project and a **server** project. Together, they form a TCP-based application for generating random passwords. 
 
@@ -54,3 +52,7 @@ server/
 ├── psw_function.c    # Password generation logic
 └── psw_function.h    # Header for password generation
 ```
+
+Authors:
+- Bruno Giuseppe
+- Giordano Angelo
