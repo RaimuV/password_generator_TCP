@@ -53,6 +53,6 @@ server/
 └── psw_function.h    # Header for password generation
 ```
 
-Authors:
+###Authors:
 - Bruno Giuseppe
 - Giordano Angelo
