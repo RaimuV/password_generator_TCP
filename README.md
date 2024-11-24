@@ -1,32 +1,34 @@
-# password_generator_TCP
-A simple client-server password generator application written in C.
+# TCP Password Generator
 
 **Authors:** Angelo Giordano, Giuseppe Bruno (Matricole: 802019, 798106)
 
 ## Overview
-This project implements a TCP-based client-server application for generating random passwords. The client requests a password by specifying its type and length, and the server responds with a randomly generated password. The application supports various password types, such as numeric, alphabetic, mixed, and secure passwords.
+This repository contains the implementation of a **university exam project**, which consists of two interrelated components: a **client** project and a **server** project. Together, they form a TCP-based application for generating random passwords. 
+
+The client sends requests specifying the type and length of the desired password, while the server processes the request, generates the password, and sends it back to the client.
 
 ---
 
 ## Features
-- **Client:** 
-  - Input validation for password type and length.
-  - Sends requests to the server for password generation.
-  - Receives and displays the generated password.
 
-- **Server:** 
-  - Accepts multiple clients (supports up to `QLEN + 1` clients).
-  - Generates random passwords based on the client's request.
-  - Supports secure, numeric, alphabetic, and mixed password types.
+### Client
+- Validates user input for password type and length.
+- Sends requests to the server via TCP.
+- Receives and displays the generated password.
+
+### Server
+- Handles requests from multiple clients (up to `QLEN + 1` simultaneous connections).
+- Generates random passwords based on client specifications.
+- Supports multiple password types: numeric, alphabetic, mixed, and secure.
 
 ---
 
 ## Password Types
-The following types of passwords can be requested:
+The following password types can be requested:
 - **Numeric (n):** Digits only (e.g., 123456).
 - **Alphabetic (a):** Lowercase letters only (e.g., abcdef).
 - **Mixed (m):** Lowercase letters and digits (e.g., abc123).
-- **Secure (s):** Combination of uppercase letters, lowercase letters, digits, and special characters (e.g., Abc@123).
+- **Secure (s):** Combination of uppercase, lowercase, digits, and special characters (e.g., Abc@123).
 
 ### Constraints
 - Password length must be between **6** and **32** characters.
@@ -34,14 +36,21 @@ The following types of passwords can be requested:
 ---
 
 ## Project Structure
+This project is divided into two main components, which work together to fulfill the assignment requirements:
+
+### Client Project
 ```plaintext
-.
+client/
 ├── main_client.c     # Client-side logic
-├── main_server.c     # Server-side logic
-├── protocol.h        # Shared protocol definitions (e.g., structures, constants)
+├── protocol.h        # Shared protocol definitions
 ├── function.c        # Client utility functions (e.g., input validation)
-├── function.h        # Header for client utilities
-├── psw_function.c    # Server-side password generation logic
-├── psw_function.h    # Header for server-side password generation
-└── README.md         # Project documentation
+└── function.h        # Header for client utilities
+```
+### Server Project
+```plaintext
+server/
+├── main_server.c     # Server-side logic
+├── protocol.h        # Shared protocol definitions
+├── psw_function.c    # Password generation logic
+└── psw_function.h    # Header for password generation
 ```
